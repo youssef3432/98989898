@@ -271,7 +271,7 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setFooter('')
-      .addField('شكرا لك لاستخدامك البوت الذهبي', `https://discordapp.com/oauth2/authorize?client_id=395214867822542858&scope=bot&permissions=268443710`)
+      .addField('شكرا لك لاستخدامك البوت يوسف', `https://discordapp.com/oauth2/authorize?client_id=395214867822542858&scope=bot&permissions=268443710`)
   message.author.send({embed});
 
  }
@@ -315,7 +315,7 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setFooter('© Gold Bot')  
-      .addField('سيرفر الدعم الفني', `  https://discord.gg/7bQAMFj`)
+      .addField('سيرفر الدعم الفني', `  https://discord.gg/zzHkzuV`)
   message.author.send({embed});
 
  }
