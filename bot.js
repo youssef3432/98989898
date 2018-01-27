@@ -358,7 +358,7 @@ client.on("message", message => {
 
 
 
-const TOKEN = "";
+const TOKEN = "NDA0MzkyMDgzMTg5OTIzODQx.DU2CmA.IEQFvvVG3RZI2g0jt1gvp2BVk0c";
 
 function commandIs(str, msg){
     return msg.content.toLowerCase().startsWith('-' + str);
