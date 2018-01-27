@@ -1364,4 +1364,68 @@ message.channel.sendEmbed(avatar)
 });
 
 
+client.on('message', message => {
+ if (message.content.startsWith("ترحيب")) {
+                                 var mentionned = message.mentions.users.first();
+             var mentionavatar;
+               if(mentionned){
+                   var mentionavatar = mentionned;
+               } else {
+                   var mentionavatar = message.author;
+                   
+               }
+               let bot;
+               if(message.author.bot) {
+                   bot = 'Bot'
+               } else {
+                   bot = 'User'
+               } 
+  var EsTeKnAN = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setThumbnail(`${mentionavatar.avatarURL}`)
+  .addField("***شكرا الانضمامك الينا***" ,mentionavatar.username )
+  .setDescription('***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا***')
+  .setImage('http://www.imgion.com/images/01/Welcome-buddy.jpg')
+   message.channel.sendEmbed(EsTeKnAN);
+  }
+});
+ 
+
+       client.on('message', message => {
+           if (message.content.startsWith(prefix + "id")) {
+        var args = message.content.split(" ").slice(1);
+      let user = message.mentions.users.first();
+       var h = message.mentions.users.first();
+          var h;
+            if(h){
+                var h = h;
+            } else {
+                var h = message.author;
+                
+            }
+              var z = message.mentions.members.first();
+          var z;
+            if(z){
+                var z = z;
+            } else {
+                var z = message.member;
+            }
+             moment.locale('ar-ly');
+            let heroo = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(h.avatarURL)
+            .setAuthor(h.username,h.avatarURL)
+            .addField(': تاريخ دخولك الدسكورد',`${moment(h.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(h.createdAt).fromNow()}\``,true)            
+            .addField(': تاريخ دخولك السيرفر',`${moment(z.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(z.joinedAt).startOf(' ').fromNow()}\`\``, true)      
+             .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
+            if(message.author.bot) return message.channel.send("**# Bots cannot excute commands!**");
+            if(h.bot) return message.channel.send("**# Bots have no profiles!**");
+         message.channel.send({embed:heroo})
+           }
+         });
+         
+         
+
+
+
 client.login(process.env.BOT_TOKEN);
