@@ -82,7 +82,7 @@ const x5bz4 = [
    '*** مريم :صوت مريم وهي تصرخ :: ساعدونيي!! "صوت موته" ***',
 ]
  client.on('message', message => {
- if (message.content.startsWith('-مريم')) {
+ if (message.content.startsWith('مريم')) {
   var mariam= new Discord.RichEmbed()
   .setTitle("لعبة مريم ..")
   .setColor('RANDOM')
@@ -271,7 +271,7 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setFooter('')
-      .addField('شكرا لك لاستخدامك البوت يوسف', `https://discordapp.com/oauth2/authorize?client_id=395214867822542858&scope=bot&permissions=268443710`)
+      .addField('شكرا لك لاستخدامك البوت يوسف', `https://discordapp.com/api/oauth2/authorize?client_id=404392083189923841&permissions=8&scope=bot=268443710`)
   message.author.send({embed});
 
  }
@@ -674,7 +674,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers `);
     console.log(`---------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`-help`,"http://twitch.tv/y04zgamer")
+  client.user.setGame(`بوت يوسف`,"http://twitch.tv/y04zgamer")
    client.user.setStatus("dnd")
 });
 
