@@ -1,23 +1,19 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-const Sra7a = [     'صراحه  |  صوتك حلوة؟',     'صراحه  |  التقيت الناس مع وجوهين؟',     'صراحه  |  شيء وكنت تحقق اللسان؟',     'صراحه  |  أنا شخص ضعيف عندما؟',     'صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟',     'صراحه  |  يدل على أن الكذب مرات تكون ضرورية شي؟',     'صراحه  |  أشعر بالوحدة على الرغم من أنني تحيط بك كثيرا؟',     'صراحه  |  كيفية الكشف عن من يكمن عليك؟',     'صراحه  |  إذا حاول شخص ما أن يكرهه أن يقترب منك ويهتم بك تعطيه فرصة؟',     'صراحه  |  أشجع شيء حلو في حياتك؟',     'صراحه  |  طريقة جيدة يقنع حتى لو كانت الفكرة خاطئة" توافق؟',     'صراحه  |  كيف تتصرف مع من يسيئون فهمك ويأخذ على ذهنه ثم ينتظر أن يرفض؟',     'صراحه  |  التغيير العادي عندما يكون الشخص الذي يحبه؟',     'صراحه  |  المواقف الصعبة تضعف لك ولا ترفع؟',     'صراحه  |  نظرة و يفسد الصداقة؟',     'صراحه  |  ‏‏إذا أحد قالك كلام سيء بالغالب وش تكون ردة فعلك؟',     'صراحه  |  شخص معك بالحلوه والمُره؟',     'صراحه  |  ‏هل تحب إظهار حبك وتعلقك بالشخص أم ترى ذلك ضعف؟',     'صراحه  |  تأخذ بكلام اللي ينصحك ولا تسوي اللي تبي؟',     'صراحه  |  وش تتمنى الناس تعرف عليك؟',     'صراحه  |  ابيع المجرة عشان؟',     'صراحه  |  أحيانا احس ان الناس ، كمل؟',     'صراحه  |  مع مين ودك تنام اليوم؟',     'صراحه  |  صدفة العمر الحلوة هي اني؟',     'صراحه  |  الكُره العظيم دايم يجي بعد حُب قوي " تتفق؟',]
-   
-
-client.on('message', message => {
- if (message.content.startsWith('صراحه')) {
-     if(!message.channel.guild) return message.reply('** This command only for servers **');
-  var client= new Discord.RichEmbed()
-  .setTitle("لعبة صراحة ..")
-  .setColor('RANDOM')
-  .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
-                  .setTimestamp()
-
-   message.channel.sendEmbed(client);
-   message.react("??")
- }
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('Pong!');
+  }
+});
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag} !`);
+     client.user.setActivity("World",{type: 'WATCHING'});
+});
 
-client.login("youssef")
+client.login('token');
