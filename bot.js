@@ -12,4 +12,12 @@ client.on('message', message => {
 });
 
 // THIS  MUST  BE  THIS  WAY
+
+
+
+client.on('ready', () => {
+        client.user.setActivity("Your 999 666666",{type: 'LISTENING'});
+
+});
+
 client.login(process.env.BOT_TOKEN);
