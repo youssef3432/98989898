@@ -13,7 +13,7 @@ client.on('message', msg => {
 
     
     client.on('ready', () => {
-        client.user.setActivity("Your Mom Moaing",{type: 'LISTENING'});
+        client.user.setActivity("لن ادعك تكون بغيض!",{type: 'LISTENING'});
 
 });
 client.login(process.env.BOT_TOKEN);
