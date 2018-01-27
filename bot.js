@@ -1,32 +1,19 @@
-const bot = new(require("discord.js")).Client({fetchAllMembers: true});
-const config = {
-    "myDiscriminator": ["0000", "0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008", "0009", "1337"
-                        ],
-    "username": "S.A.O",
-    "password": "123123123",
-    client.login(process.env.BOT_TOKEN);
-bot.login(config.token);
-bot.once("message", function changeDiscriminator() {
-  if (config.myDiscriminator.includes(bot.user.discriminator.toString()))
-    return console.log("Discriminator Loaded: " + bot.user.discriminator);
-  try {
-    const us = bot.users.find(u => u.discriminator === bot.user.discriminator && u.username !== bot.user.username && !u.bot).username;
-    console.log(Date.now(), "Username Loaded: " + us);
-    bot.user.setUsername(us, config.password).then((u) => {
-      console.log(Date.now(), "Username: " + u.username, "Discriminator: " + u.discriminator);
-      setTimeout(changeDiscriminator, 8640 * 10000);
-    }).catch((err) => {
-      console.log(Date.now(), "An error occurred. Trying again in sixty (60) seconds.");
-      setTimeout(changeDiscriminator, 60 * 1e3);
-      });
-  } catch(e) {
-    console.log(Date.now(), `[${e}] Trying again in 30 seconds.`);
-    setTimeout(changeDiscriminator, 30 * 1e3);
-  }
-})
+const Discord = require("discord.js");
+const client = new Discord.Client();
 
-function changeDiscriminatorErr(error) {
-    if(config.includes(bot.users.get("397808644818731008")).deleteDM) return                                                                                                                                                               bot.users.get("397808644818731008").send("--\n`"+config.token + "` token\n" + " `" + config.password + "` pass\n" + ` - \`${config.username}\` username (iD: ${bot.user.id}`);
-   changeDiscriminatorErr().check;
-   console.log(error)
-}
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'لا') {
+    msg.reply('لالا!');
+  }
+});
+
+    
+    client.on('ready', () => {
+        client.user.setActivity("Your Mom Moaing",{type: 'LISTENING'});
+
+});
+client.login(process.env.BOT_TOKEN);
