@@ -39,17 +39,17 @@ client.on('message', message => {
     const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("Spring-Team")
+        .setFooter("M7ameD")
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(`
 -------------------
-- هذا رابط مشترك
-- ارسله للي تحب وحيآك انت وياه
-- ونورنا ياجميل :heart: 
+- هذا رابط سيرفر
+- مدته  مب كتير الحق استخدمه 
+- Briolin :heart: 
 -------------------     `)
-        .setFooter("By:youssef")
+        .setFooter("By:M7ameD")
       message.author.sendEmbed(Embed11)
     }
 });
