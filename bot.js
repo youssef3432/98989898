@@ -39,7 +39,7 @@ client.on('message', message => {
     const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("M7ameD")
+        .setFooter("Briolin")
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
@@ -49,7 +49,7 @@ client.on('message', message => {
 - مدته  مب كتير الحق استخدمه 
 - Briolin :heart: 
 -------------------     `)
-        .setFooter("By:M7ameD")
+        .setFooter("By:Briolin")
       message.author.sendEmbed(Embed11)
     }
 });
