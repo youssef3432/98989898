@@ -17,30 +17,42 @@ client.on('message', msg => {
 
 
 
-Client.on("message", message => {
-    var prefix = "-";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix - "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
- if (!args[1]) {
-                                let embed3 = new Discord.RichEmbed()
-                                .setDescription(":white_check_mark: | تم ارسال للكل رساله فارغه")
-                                .setColor("#FF0000")
-                                message.channel.sendEmbed(embed3);
-                            } else {
 
-                            let embed4 = new Discord.RichEmbed()
-                                                            .setDescription(':white_check_mark: | تم ارسال للكل الرساله !')
-                                                            .setColor("#008000")
-                                message.channel.sendEmbed(embed4);
-                                                      message.delete();
-                            }
-                          }
+
+
+
+
+
+
+
+
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+        
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 1,
+        maxAge: 86400
+    }).then(invite =>  
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
+        .setFooter("Briolin")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`
+-------------------
+- هذا رابط سيرفر
+-  هذا الرابط صالح لمدة .... ولشخص واحد فقط. 
+- Briolin :heart: 
+-------------------     `)
+        .setFooter("By:Briolin")
+      message.author.sendEmbed(Embed11)
+    }
 });
-
-
-
 
 
 
