@@ -45,8 +45,8 @@ client.on('message', message => {
         .setColor("RANDOM")
         .setDescription(`
 -------------------
-- هذا رابط سيرفر
--  هذا الرابط صالح لمدة .... ولشخص واحد فقط. 
+- تم إنشاء هذا الرابط لك
+-  يمكن إستخدامه لشخص واحد فقط  
 - Briolin :heart: 
 -------------------     `)
         .setFooter("By:Briolin")
