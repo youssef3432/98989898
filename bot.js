@@ -13,32 +13,29 @@ client.on('message', msg => {
 
 
 client.on('message', message => {
-var prefix = "=";
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id == ID ROOM) return;
+   if (message.content.startsWith("$$id")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-if (message.content.startsWith(prefix + 'playing')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult}** : Status changed`)
-} else
-
-if (message.content.startsWith(prefix + 'Stream')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/m2321");
-    message.channel.sendMessage(`**${argresult}** :The bot stream has been changed`)
-} else
-
-if (message.content.startsWith(prefix + 'Name')) {
-  client.user.setUsername(argresult).then
-      message.channel.sendMessage(`**${argresult}** : Name changed`)
-  return message.reply("**You**");
-} else
-if (message.content.startsWith(prefix + 'Image')) {
-  client.user.setAvatar(argresult);
-    message.channel.sendMessage(`**${argresult}** : The bot image has been changed`);
-
-}
+               var mentionned = message.mentions.users.first();
+    var mentionavatar;
+      if(mentionned){
+          var mentionavatar = mentionned;
+      } else {
+          var mentionavatar = message.author;
+          
+      }
+   let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+   .setThumbnail(`${mentionavatar.avatarURL}`)
+  .addField("Name:",`<@` + `${mentionavatar.id}` + `>`, true)
+  .addField('Discrim:',"#" +  `${mentionavatar.discriminator}`, true)
+   .addField("ID:", "**[" + `${mentionavatar.id}` + "]**", true)
+  .addField("Create At:", "**[" + `${mentionavatar.createdAt}` + "]**", true)
+     
+     
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
