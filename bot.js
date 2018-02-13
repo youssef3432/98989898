@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 
           client.on('message', message => {
-           if (message.content.startsWith("الأمر")) {
+           if (message.content.startsWith("id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
      var men = message.mentions.users.first();
