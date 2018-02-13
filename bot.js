@@ -12,22 +12,33 @@ client.on('message', msg => {
 });
 
 
-client.on("message", msg => {
-  if(msg.content.startsWith ===(prefix + "id")) {
-      const embed = new Discord.RichEmbed();
-  embed.addField("Username", `${msg.author.username}#${msg.author.discriminator}`, true)
-          .addField("ID", `${msg.author.id}`, true)
-          .setColor("RANDOM")
-          .setFooter(msg.author.username , msg.author.avatarURL)
-          .setThumbnail(`${msg.author.avatarURL}`)
-          .setTimestamp()
-          .setURL(`${msg.author.avatarURL}`)
-          .addField('Currently', `${msg.author.presence.status.toUpperCase()}`, true)
-          .addField('Game', `${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name}`, true)
-          .addField('Roles', `${msg.member.roles.filter(r => r.name).size}`, true)
-          .addField('Is Bot', `${msg.author.bot.toString().toUpperCase()}`, true);
-      msg.channel.send({embed: embed})
-  }
+client.on('message', message => {
+var prefix = "=";
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id == ID ROOM) return;
+
+if (message.content.startsWith(prefix + 'playing')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`**${argresult}** : Status changed`)
+} else
+
+if (message.content.startsWith(prefix + 'Stream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/m2321");
+    message.channel.sendMessage(`**${argresult}** :The bot stream has been changed`)
+} else
+
+if (message.content.startsWith(prefix + 'Name')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : Name changed`)
+  return message.reply("**You**");
+} else
+if (message.content.startsWith(prefix + 'Image')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : The bot image has been changed`);
+
+}
 });
 
 client.login(process.env.BOT_TOKEN);
