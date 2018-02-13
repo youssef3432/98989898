@@ -6,32 +6,21 @@ client.on('ready', () => {
 });
 
 
-          client.on('message', message => {
-           if (message.content.startsWith("id")) {
-     var args = message.content.split(" ").slice(1);
-     let user = message.mentions.users.first();
-     var men = message.mentions.users.first();
-        var heg;
-        if(men) {
-            heg = men
-        } else {
-            heg = message.author
-        }
-      var mentionned = message.mentions.members.first();
-         var h;
-        if(mentionned) {
-            h = mentionned
-        } else {
-            h = message.member
-        }
-               moment.locale('ar-TN');
-      var id = new  Discord.RichEmbed()
-    .setColor("RANDOM")
-    .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
-    .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
-   .setThumbnail(message.author.avatarURL)
-    message.channel.send(id)
-}       });
-
-
+client.on("message", msg => {
+  if(msg.content.startsWith ===(prefix + "id")) {
+      const embed = new Discord.RichEmbed();
+  embed.addField("Username", `${msg.author.username}#${msg.author.discriminator}`, true)
+          .addField("ID", `${msg.author.id}`, true)
+          .setColor("RANDOM")
+          .setFooter(msg.author.username , msg.author.avatarURL)
+          .setThumbnail(`${msg.author.avatarURL}`)
+          .setTimestamp()
+          .setURL(`${msg.author.avatarURL}`)
+          .addField('Currently', `${msg.author.presence.status.toUpperCase()}`, true)
+          .addField('Game', `${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name}`, true)
+          .addField('Roles', `${msg.member.roles.filter(r => r.name).size}`, true)
+          .addField('Is Bot', `${msg.author.bot.toString().toUpperCase()}`, true);
+      msg.channel.send({embed: embed})
+  }
+});
 client.login(process.env.BOT_TOKEN);
