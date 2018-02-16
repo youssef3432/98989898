@@ -1,48 +1,34 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
 
+console.log("Welcome Again !");
+
 client.on('ready', () => {
-  console.log(Logged in as ${client.user.tag}!);
+    client.user.setStatus('idle');
 });
 
-client.on('message', msg => {
-  if (msg.content === 'محمد') {
-    msg.reply('دقيقه');
-  }
-});
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(**
+      حياك الله ي بعد راسي
+       خش بتنورنا فعاليات وكل شيء حلو موجود !
+        ي بعد عيني الرابط تحت
+         
 
+                                 [ https://discord.gg/hS7PwCZ ] **)
+}).catch(console.error)
+})
 
-client.on('message', message => {
-    var prefix = "-"
-    let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
+client.on("guildMemberRemove", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(**
+      حياك الله ي بعد راسي
+       خش بتنورنا فعاليات وكل شيء حلو موجود !
+        ي بعد عيني الرابط تحت
+         
 
-  let args = message.content.split(" ").slice(1);
-
-
-if(command == "draw") {
-    var Canvas = require('canvas')
-  , Image = new Canvas.Image
-  , canvas = new Canvas(450, 170)
-  , ctx = canvas.getContext('2d');
-  ctx.font = '30px Impact';
-  let args = message.content.split(" ").slice(1);
-  
-Image.src = canvas.toBuffer();
-
-    console.log(Image);
-ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
-ctx.fillText(args.join("  "),110, 70);
-
-
-ctx.beginPath();
-ctx.lineTo(50, 102);
-ctx.stroke();
-
-message.channel.sendFile(canvas.toBuffer());
-}
-}).on('ready', () => {
-
-});
+                                 [ https://discord.gg/hS7PwCZ ] **)
+}).catch(console.error)
+})
 
 client.login(process.env.BOT_TOKEN);
