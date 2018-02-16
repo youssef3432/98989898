@@ -4,7 +4,7 @@ const client = new Discord.Client();
 console.log("Welcome Again !");
 
 client.on('ready', () => {
-    client.user.setStatus('idle');
+    client.user.setStatus('online');
 });
 
 client.on("guildMemberAdd", member => {
