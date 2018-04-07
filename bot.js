@@ -15,7 +15,7 @@ client.on("guildMemberAdd", member => {
         ي بعد عيني الرابط تحت
           (:
 
-                                 [ https://discord.gg/zJeF3kY ] **`)
+                                 [ https://discord.gg/W4455T4 ] **`)
 }).catch(console.error)
 })
 
@@ -27,7 +27,7 @@ client.on("guildMemberRemove", member => {
         ي بعد عيني الرابط تحت
           (:
 
-                                 [ https://discord.gg/zJeF3kY ] **`)
+                                 [ https://discord.gg/W4455T4 ] **`)
 }).catch(console.error)
 })
 
