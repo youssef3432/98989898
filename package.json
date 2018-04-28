@@ -10,7 +10,7 @@
     "discord.js": "11.1.0",
     "fs": "0.0.1-security",
     "ytdl-core": "^0.20.2"
-    "request": "2.81.0"
+    "request": 2.81.0"
   }
 }
 
