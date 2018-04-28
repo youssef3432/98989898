@@ -2,10 +2,6 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-client.on('ready', () => {
-  console.log('By NightMarE Enjoy');
-});
-
 client.on('message', message => {
   if (message.content === 'm') {
       if (message.author.id !== '388463178377330688') return message.react('⚠')
