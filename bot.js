@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.content === 'طيب') {
+  if (message.content === 'm') {
       if (message.author.id !== '388463178377330688') return message.react('⚠')
     const channel = message.member.voiceChannel;
 
