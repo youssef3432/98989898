@@ -9,7 +9,7 @@ const http2 = require('http2');
 
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '5';
+const prefix = '1';
 const discord_token = "NDM3OTUyNjA4MzIyMzIyNDMy.DdM2Tw.q3mExKL3mkZ8ZIWzlIBgUCQCe80";
 client.login(discord_token);
 client.on('ready', function() {
@@ -34,7 +34,7 @@ var now_playing = [];
 
 client.on('ready',  () => {
 
-client.user.setGame(`5play`,'https://www.twitch.tv/hix')
+client.user.setGame(`1play`,'https://www.twitch.tv/hix')
 client.user.setStatus("online");
 });
 
